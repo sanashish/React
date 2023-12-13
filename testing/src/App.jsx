@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>
+      <h1 className="title">
         <center>City</center>
       </h1>
       <ErrorMsg city={city} />
