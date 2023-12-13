@@ -1,0 +1,14 @@
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.numKey{
+    width: 50px;
+    height: 45px;
+    margin: 2px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 3px;
+}
