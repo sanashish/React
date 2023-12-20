@@ -15,11 +15,6 @@ function App() {
         <ErrorMsg city={city} />
         <CityList city={city} />
       </Container>
-      <Container>
-        <p>
-          <center>These are some cities name</center>
-        </p>
-      </Container>
     </>
   );
 }
