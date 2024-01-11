@@ -1,9 +1,8 @@
 import { useState } from "react";
-import styles from "./cityInput.module.css";
 
 function CityInput({ handleOnKeyDown }) {
   return (
-    <div className={`${styles["input"]} form-floating`}>
+    <div className="form-floating">
       <input
         type="text"
         className="form-control"
