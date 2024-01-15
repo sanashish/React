@@ -1,6 +1,6 @@
 import style from "./ButtonsContainer.module.css";
 
-function ButtonsContainer() {
+function ButtonsContainer({ handleOnNumClick }) {
   const buttonList = [
     "C",
     "1",
@@ -23,7 +23,11 @@ function ButtonsContainer() {
   return (
     <div className={style.buttonContainer}>
       {buttonList.map((key) => (
-        <button key={key} className={style.numKey}>
+        <button
+          key={key}
+          className={style.numKey}
+          onClick={() => handleOnNumClick(key)}
+        >
           {key}
         </button>
       ))}
