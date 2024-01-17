@@ -1,7 +1,16 @@
+import { useContext } from "react";
+import { TodoItemsContext } from "../store/todo-items-store";
 import style from "./Message.module.css";
 
 function Message() {
-  return <h3 className={style.msg}>Nothing to do Today! Enjoy your cuppa.</h3>;
+  const contectObj = useContext(TodoItemsContext);
+  const todoItems = contectObj.todoItems;
+  // console.log(TodoItemsContext.length);
+  return (
+    todoItems.length === 0 && (
+      <h3 className={style.msg}>Nothing to do Today! Enjoy your cuppa.</h3>
+    )
+  );
 }
 
 export default Message;
