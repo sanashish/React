@@ -38,7 +38,7 @@ function AddTodo() {
             <input className={style.inputbox} type="date" ref={date} />
           </div>
           <div className="col-2">
-            <button className={`${style["myButton"]} btn btn-success`}>
+            <button className="btn btn-success">
               <IoMdAddCircle />
             </button>
           </div>

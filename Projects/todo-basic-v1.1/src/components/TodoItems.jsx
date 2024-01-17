@@ -6,7 +6,6 @@ import style from "./TodoItems.module.css";
 function TodoItems() {
   const contectObj = useContext(TodoItemsContext);
   const todoItems = contectObj.todoItems;
-  // console.log(todoItems);
 
   return (
     <>

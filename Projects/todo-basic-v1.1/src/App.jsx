@@ -1,12 +1,8 @@
 import AppName from "./components/AppName";
 import AddTodo from "./components/AddTodo";
-import "./App.css";
 import TodoItems from "./components/TodoItems";
 import Message from "./components/Message";
-import { useReducer } from "react";
-import TodoItemsContextProvider, {
-  TodoItemsContext,
-} from "./store/todo-items-store";
+import TodoItemsContextProvider from "./store/todo-items-store";
 
 function App() {
   return (
