@@ -1,23 +1,18 @@
-import { useState } from "react";
+import { useRef } from "react";
 import style from "./AddTodo.module.css";
 import { IoMdAddCircle } from "react-icons/io";
 
 function AddTodo({ handleOnAddButton }) {
-  const [todoName, setTodoName] = useState("");
-  const [date, setDate] = useState("");
-
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-  const handleDateChange = (event) => {
-    setDate(event.target.value);
-  };
+  const todoName = useRef();
+  const date = useRef();
 
   const handleAddButtonClick = (event) => {
     event.preventDefault();
-    handleOnAddButton(todoName, date);
-    setTodoName("");
-    setDate("");
+    const name = todoName.current.value;
+    const dd = date.current.value;
+    todoName.current.value = "";
+    date.current.value = "";
+    handleOnAddButton(name, dd);
   };
 
   return (
@@ -33,17 +28,11 @@ function AddTodo({ handleOnAddButton }) {
               className={style.inputbox}
               type="text"
               placeholder="Enter Todo Here"
-              value={todoName}
-              onChange={handleNameChange}
+              ref={todoName}
             />
           </div>
           <div className="col-4">
-            <input
-              className={style.inputbox}
-              type="date"
-              value={date}
-              onChange={handleDateChange}
-            />
+            <input className={style.inputbox} type="date" ref={date} />
           </div>
           <div className="col-2">
             <button className={`${style["myButton"]} btn btn-success`}>
