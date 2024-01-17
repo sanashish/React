@@ -13,7 +13,8 @@ function AddTodo({ handleOnAddButton }) {
     setDate(event.target.value);
   };
 
-  const handleAddButtonClick = () => {
+  const handleAddButtonClick = (event) => {
+    event.preventDefault();
     handleOnAddButton(todoName, date);
     setTodoName("");
     setDate("");
@@ -21,7 +22,11 @@ function AddTodo({ handleOnAddButton }) {
 
   return (
     <>
-      <div className={style["addtodo-container"]}>
+      <form
+        className={style["addtodo-container"]}
+        action=""
+        onSubmit={handleAddButtonClick}
+      >
         <div className="row">
           <div className="col-6">
             <input
@@ -41,17 +46,12 @@ function AddTodo({ handleOnAddButton }) {
             />
           </div>
           <div className="col-2">
-            {/* <button type="button" className="btn btn-success"> */}
-            <button
-              type="button"
-              className={`${style["myButton"]} btn btn-success`}
-              onClick={handleAddButtonClick}
-            >
+            <button className={`${style["myButton"]} btn btn-success`}>
               <IoMdAddCircle />
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </>
   );
 }
