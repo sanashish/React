@@ -23,7 +23,6 @@ function PostList() {
 
     return () => {
       controller.abort();
-      console.log("Cleaning Up");
     };
   }, []);
 
