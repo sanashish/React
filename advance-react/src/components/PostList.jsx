@@ -17,6 +17,10 @@ function PostList() {
         addPosts(data.posts);
         setFetching(false);
       });
+
+    return () => {
+      console.log("Cleaning Up");
+    };
   }, []);
 
   return (
