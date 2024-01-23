@@ -1,3 +1,4 @@
+/*import { useMemo } from "react";*/
 import { useCallback } from "react";
 import { createContext, useReducer } from "react";
 
@@ -58,6 +59,12 @@ const PostListProvider = ({ children }) => {
     },
     [dispatchPostList]
   );
+
+  /* This is only for understanding purpose
+
+  const arr = [5, 3, 8, 7, 6, 9];
+  const sortedArr = useMemo(() => arr.sort(), [arr]);
+  */
 
   return (
     <PostList.Provider
