@@ -28,17 +28,10 @@ const PostListProvider = ({ children }) => {
 
   const [fetching, setFetching] = useState(false);
 
-  const addPost = (userId, title, body, reactions, tags) => {
+  const addPost = (posts) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now(),
-        title: title,
-        body: body,
-        reactions: reactions,
-        userId: userId,
-        tags: tags,
-      },
+      payload: posts,
     });
   };
 
