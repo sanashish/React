@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { createContext, useReducer } from "react";
 
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
-  fetching: false,
   deletePost: () => {},
 });
 
@@ -25,8 +24,6 @@ const postListReducer = (currentPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
-
-  const [fetching, setFetching] = useState(false);
 
   const addPost = (posts) => {
     dispatchPostList({
@@ -54,29 +51,11 @@ const PostListProvider = ({ children }) => {
     [dispatchPostList]
   );
 
-  useEffect(() => {
-    setFetching(true);
-    const controller = new AbortController();
-    const signal = controller.signal;
-
-    fetch("https://dummyjson.com/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addPosts(data.posts);
-        setFetching(false);
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
-
   return (
     <PostList.Provider
       value={{
         postList: postList,
         addPost: addPost,
-        fetching: fetching,
         deletePost: deletePost,
       }}
     >
